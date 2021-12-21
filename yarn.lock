@@ -786,10 +786,10 @@
     pako "2.0.3"
     ripemd-ts "0.0.2"
 
-"@proton/link@3.2.3-26-test":
-  version "3.2.3-26-test"
-  resolved "https://registry.yarnpkg.com/@proton/link/-/link-3.2.3-26-test.tgz#e6543793145c8fb953b7b31f1b83643403ee3349"
-  integrity sha512-KRC0yMiahuaY5sd1cbuWVTVWhG7U3Bht412ngVgyCZNGyO5qHhA0KpIb5Dc98cnxS/eNdiKhlQdyXXFPBwlMJA==
+"@proton/link@^3.2.3-27":
+  version "3.2.3-27"
+  resolved "https://registry.yarnpkg.com/@proton/link/-/link-3.2.3-27.tgz#80f3cc16204826af4d7dd39bfdfde457334bd191"
+  integrity sha512-cPruWiG59UWlSdYSkjC23Q7yuQN8Q7POAyfIJ6fDl687YgkDExf7wsLeEpPl2myOHzULEqDwwqdHtEJVyJ0W+Q==
   dependencies:
     "@greymass/eosio" "^0.4.7"
     "@jafri/asmcrypto.js" "^2.3.2"
