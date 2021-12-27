@@ -13,11 +13,8 @@ pod install
 
 ### Initialization
 
-To use `@proton/react-native-sdk` import the class `ConnectWallet`. If you are using typescript, you can import the types `ProtonLink` and `LinkSession`.
-
 ```javascript
-import {
-  ConnectWallet,
+import ProtonRNSDK, {
   LinkSession,
   ProtonLink,
 } from '@proton/react-native-sdk';
@@ -28,7 +25,6 @@ class ProtonSDK {
   requestAccount: string;
   session: LinkSession;
   link: ProtonLink;
-
 
   constructor() {
     this.chainId =
@@ -42,11 +38,11 @@ class ProtonSDK {
 
 ### Login
 
-Using the return value from `ConnectWallet`, call the `login` method with the `chainId`, `endpoints`, the `requestAccount` and the `getReturnUrl` function. The `getRetunUrl` function returns the url scheme of the app that the user will be redirected to after an interaction with the Proton App. `ConnectWallet` will return the user session (`LinkSession`) and a link (`ProtonLink`).
+Using the return value from the default call, call the `login` method with the `chainId`, `endpoints`, the `requestAccount` and the `getReturnUrl` function. The `getRetunUrl` function returns the url scheme of the app that the user will be redirected to after an interaction with the Proton App. Default call will return the user session (`LinkSession`) and a link (`ProtonLink`).
 
 ```javascript
 login = async () => {
-  const { session, link } = await ConnectWallet({
+  const { session, link } = await ProtonRNSDK({
     linkOptions: { chainId: this.chainId, endpoints: this.endpoints },
     transportOptions: {
       requestAccount: this.requestAccount,
@@ -149,12 +145,12 @@ navigation.navigate('welcome');
 
 ### Restore session
 
-To restore a previous session, call the `ConnectWallet` function similar to login, but set the `restoreSession` key as `true` in `linkOptions`.
+To restore a previous session, call the default function similar to login, but set the `restoreSession` key as `true` in `linkOptions`.
 
 ```javascript
   restoreSession = async () => {
     try {
-      const { link, session } = await ConnectWallet({
+      const { link, session } = await ProtonRNSDK({
         linkOptions: {
           chainId: this.chainId,
           endpoints: this.endpoints,
@@ -167,7 +163,9 @@ To restore a previous session, call the `ConnectWallet` function similar to logi
       });
       this.link = link;
       this.session = session;
+
       console.log('session', this.session);
+
       if (session) {
         return {
           auth: this.session.auth

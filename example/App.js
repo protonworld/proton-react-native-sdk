@@ -9,10 +9,10 @@
  * https://github.com/facebook/react-native
  */
 
-import React, {Alert, Component} from 'react';
-import {StyleSheet, Text, View, Platform, Button} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-import { ConnectWallet } from '@proton/react-native-sdk';
+import ProtonRNSDK from '@proton/react-native-sdk';
 
 class ProtonSDK {
   chainId;
@@ -30,7 +30,7 @@ class ProtonSDK {
   }
 
   login = async () => {
-    const { session, link } = await ConnectWallet({
+    const { session, link } = await ProtonRNSDK({
       linkOptions: { chainId: this.chainId, endpoints: this.endpoints },
       transportOptions: {
         requestAccount: this.requestAccount,

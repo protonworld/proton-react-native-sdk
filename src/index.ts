@@ -26,7 +26,7 @@ interface ConnectWalletArgs {
   transportOptions: ReactNativeTransportOptions
 }
 
-export const ConnectWallet = async ({
+const ConnectWallet = async ({
   linkOptions,
   transportOptions,
 }: ConnectWalletArgs) => {
@@ -106,3 +106,4 @@ export const ConnectWallet = async ({
 }
 
 export { ProtonLink, LinkSession }
+export default ConnectWallet
